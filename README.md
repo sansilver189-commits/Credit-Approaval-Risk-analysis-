@@ -32,7 +32,7 @@ flowchart LR
 ## Current Status
 
 - **Phase 0:** Dataset sourced (Kaggle, "Give Me Some Credit," 150,000 applicant records), environment set up (Python, pandas, DuckDB, matplotlib)
-- **Phase 1:** Data quality investigation and SQL-based cleaning — impossible values removed, placeholder codes flagged, missing data flagged and imputed
+- **Phase 1:** Data quality investigation and SQL-based cleaning, impossible values removed, placeholder codes flagged, missing data flagged and imputed
 - **Phase 2:** Exploratory analysis - default rate baseline, utilization brackets, late-payment history
 - **Phase 3:** Risk segmentation combining both signals into a 3-tier policy model
 - **Phase 4:** Trade-off quantification - approval rate vs. default rate across three policy options
@@ -49,7 +49,7 @@ flowchart LR
 | Missing `MonthlyIncome` | 29,731 (~20%) | Flagged (`income_was_missing`) and median-imputed |
 | Missing `NumberOfDependents` | 3,924 (~2.6%) | Flagged and median-imputed |
 
-### Finding 1 — Credit utilization predicts default with a consistent, monotonic relationship
+### Finding 1 - Credit utilization predicts default with a consistent, monotonic relationship
 
 ![Default rate by utilization bracket](notebooks/default_by_utilization.png)
 
@@ -60,11 +60,11 @@ flowchart LR
 | High (60–100%) | 16.5% | 31,909 |
 | Very High (100%+) | 37.2% | 3,321 (*smaller sample - less stable estimate*) |
 
-### Finding 2 — Late payment history is an even stronger, more balanced signal
+### Finding 2 - Late payment history is an even stronger, more balanced signal
 
 Applicants with any late-payment history (excluding the 269 flagged data-quality records) default at **21.98%**, versus **2.84%** for those with none, an 8x difference across a well-balanced split (30,093 vs. 119,906 applicants).
 
-### Finding 3 — Combining both signals into a risk policy produces a clear, actionable trade-off curve
+### Finding 3 - Combining both signals into a risk policy produces a clear, actionable trade-off curve
 
 ![Approval rate vs. default rate by risk policy](notebooks/tradeoff_curve.png)
 
