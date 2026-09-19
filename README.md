@@ -45,7 +45,7 @@ flowchart LR
 | Issue | Records Affected | Treatment |
 |---|---|---|
 | Impossible age (age = 0) | 1 | Removed |
-| Placeholder late-payment codes (96/98 — a documented artifact in this dataset) | 269 | Flagged (`has_late_payment_data_issue`), not deleted or trusted at face value |
+| Placeholder late-payment codes (96/98 - a documented artifact in this dataset) | 269 | Flagged (`has_late_payment_data_issue`), not deleted or trusted at face value |
 | Missing `MonthlyIncome` | 29,731 (~20%) | Flagged (`income_was_missing`) and median-imputed |
 | Missing `NumberOfDependents` | 3,924 (~2.6%) | Flagged and median-imputed |
 
