@@ -2,7 +2,7 @@
 
 A data analyst portfolio project modeling how a lending company would set credit approval thresholds to balance approval volume against default risk, built as an inspectable, business-framed data analysis project.
 
-This project ingests real applicant-level credit data, cleans and validates it against documented data-quality issues, segments applicants into risk tiers using two independent predictive signals, and quantifies the trade-off a lending company faces between approval rate and default exposure — arriving at a specific, defensible policy recommendation.
+This project ingests real applicant-level credit data, cleans and validates it against documented data-quality issues, segments applicants into risk tiers using two independent predictive signals, and quantifies the trade-off a lending company faces between approval rate and default exposure arriving at a specific, defensible policy recommendation.
 
 ## What This Demonstrates
 
@@ -14,7 +14,7 @@ This project ingests real applicant-level credit data, cleans and validates it a
 | Business framing | Every finding is tied back to an explicit, quantified business trade-off, not left as a standalone chart |
 | Visualization | Two purpose-built charts (bracket comparison, dual-axis trade-off curve), each with a stated takeaway |
 | Validation mindset | A documented set of post-cleaning sanity checks, re-runnable against the pipeline |
-| AI-augmented workflow | Built using AI tools as a debugging and learning partner throughout — every query, chart, and decision was reviewed and understood, not copy-pasted |
+| AI-augmented workflow | Built using AI tools as a debugging and learning partner throughout every query, chart, and decision was reviewed and understood, not copy-pasted |
 
 ## Pipeline
 
@@ -33,9 +33,9 @@ flowchart LR
 
 - **Phase 0:** Dataset sourced (Kaggle, "Give Me Some Credit," 150,000 applicant records), environment set up (Python, pandas, DuckDB, matplotlib)
 - **Phase 1:** Data quality investigation and SQL-based cleaning — impossible values removed, placeholder codes flagged, missing data flagged and imputed
-- **Phase 2:** Exploratory analysis — default rate baseline, utilization brackets, late-payment history
+- **Phase 2:** Exploratory analysis - default rate baseline, utilization brackets, late-payment history
 - **Phase 3:** Risk segmentation combining both signals into a 3-tier policy model
-- **Phase 4:** Trade-off quantification — approval rate vs. default rate across three policy options
+- **Phase 4:** Trade-off quantification - approval rate vs. default rate across three policy options
 - **Phase 5:** Validation checks and writeup
 
 ## Key Findings
@@ -58,11 +58,11 @@ flowchart LR
 | Low (0–30%) | 2.1% | 82,004 |
 | Medium (30–60%) | 6.7% | 21,887 |
 | High (60–100%) | 16.5% | 31,909 |
-| Very High (100%+) | 37.2% | 3,321 (*smaller sample — less stable estimate*) |
+| Very High (100%+) | 37.2% | 3,321 (*smaller sample - less stable estimate*) |
 
 ### Finding 2 — Late payment history is an even stronger, more balanced signal
 
-Applicants with any late-payment history (excluding the 269 flagged data-quality records) default at **21.98%**, versus **2.84%** for those with none — an 8x difference across a well-balanced split (30,093 vs. 119,906 applicants).
+Applicants with any late-payment history (excluding the 269 flagged data-quality records) default at **21.98%**, versus **2.84%** for those with none, an 8x difference across a well-balanced split (30,093 vs. 119,906 applicants).
 
 ### Finding 3 — Combining both signals into a risk policy produces a clear, actionable trade-off curve
 
@@ -76,7 +76,7 @@ Applicants with any late-payment history (excluding the 269 flagged data-quality
 
 ## Business Recommendation
 
-**Rejecting only "High Risk" applicants (34% of the pool) allows a lender to approve 65.9% of applicants at a 1.7% default rate — down from a 6.68% baseline — avoiding 8,394 of 10,026 total defaults (83.7%).**
+**Rejecting only "High Risk" applicants (34% of the pool) allows a lender to approve 65.9% of applicants at a 1.7% default rate, down from a 6.68% baseline, avoiding 8,394 of 10,026 total defaults (83.7%).**
 
 This is not presented as the single correct cutoff. A real risk team would evaluate this as one point on a broader curve, since the right threshold depends on whether the business is prioritizing growth or loss minimization in a given period. The three-policy comparison above is intended to make that trade-off explicit rather than hide it behind one number.
 
@@ -89,7 +89,7 @@ Four checks were run against the final cleaned dataset to confirm the pipeline's
 - Default rate falls within a valid 0–1 range
 - No negative ages remain
 
-All four passed. This is a lightweight, re-runnable analogue to a proper evaluation harness — sized appropriately for an exploratory analysis project rather than a production model.
+All four passed. This is a lightweight, re-runnable analogue to a proper evaluation harness, sized appropriately for an exploratory analysis project rather than a production model.
 
 ## Repository Map
 
@@ -117,4 +117,4 @@ credit-approval-risk-analysis/
 - Validate the recommended policy against a held-out test split rather than the full training set
 - Incorporate additional signals (debt ratio, number of dependents) into the risk segmentation
 - Compare the rule-based segmentation against a simple logistic regression model to quantify how much predictive lift a statistical model adds over the manual rules
-- Extend the trade-off analysis into a continuous curve (e.g. ROC-style) rather than three discrete policy points
+- Extend the trade-off analysis into a continuous curve (e.g. ROC-style) rather than three discrete policy points 
